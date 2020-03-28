@@ -1,0 +1,16 @@
+@startuml image
+title MQTTプログラムイメージ
+cloud AWS{
+    card MQTTBroker{
+        rectangle AWSIoTCore
+    }
+}
+card MyHome{
+    actor 俺
+    card RaspberryPi3{
+        rectangle Paho_Python3
+    }
+}
+AWSIoTCore-left->Paho_Python3:publish
+AWSIoTCore<-left-Paho_Python3:subscribe
+@enduml
